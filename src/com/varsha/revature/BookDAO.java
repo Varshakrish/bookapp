@@ -9,7 +9,7 @@ import java.util.List;
 
 public class BookDAO {
 	public void addBook(Book user) throws Exception {
-		String sql = "insert into book8(name ,price,author_name,published_date)values(?,?,?,?)";
+		String sql = "insert into bookv(name ,price,author_name,published_date)values(?,?,?,?)";
 		Connection con = ConnectionUtil.getConnection();
 		PreparedStatement pst = con.prepareStatement(sql);
 		pst.setString(1, user.getName());
@@ -25,11 +25,11 @@ public class BookDAO {
 
 	public List<Book> listbook() throws Exception {
 		Connection con = ConnectionUtil.getConnection();
-		String sql = "select id,name,author_name,published_date,price from book8";
+		String sql = "select id,name,author_name,published_date,price from bookv";
 		PreparedStatement pst = con.prepareStatement(sql);
 		List<Book> booklist = new ArrayList<Book>();
 		ResultSet rs = pst.executeQuery();
-		if (rs.next()) {
+		while (rs.next()) {
 			int id = rs.getInt("id");
 			String name = rs.getString("name");
 			int price = rs.getInt("price");

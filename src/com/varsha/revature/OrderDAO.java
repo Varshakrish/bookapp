@@ -29,7 +29,44 @@ public class OrderDAO {
 		PreparedStatement pst = con.prepareStatement(sql);
 		List<Order> orderlist = new ArrayList<Order>();
 		ResultSet rs = pst.executeQuery();
-		if (rs.next()) {
+		while (rs.next()) {
+			int userid = rs.getInt("userid");
+			int bookid = rs.getInt("bookid");
+			int quantity = rs.getInt("quantity");
+			String status=rs.getString("status");
+			Timestamp orderdate=rs.getTimestamp("orderdate");
+			
+			
+			
+			//store the column data in a object
+Order a = new Order();
+			a.setUserId(userid);
+			a.setBookid(bookid);
+			a.setQuantity(quantity);
+			a.setStatus(status);
+			a.setOrderDate(orderdate.toLocalDateTime());
+		
+			
+			//store the object in a list
+			orderlist.add(a);
+		}
+		System.out.println(orderlist);
+		for (Order a : orderlist) {
+			System.out.println(a);
+		}
+		
+		return orderlist;
+
+	}
+	
+	public List<Order> listorder(int userId) throws Exception {
+		Connection con = ConnectionUtil.getConnection();
+		String sql = "select userid,bookid,quantity,status,orderdate from order1 where userid = ?";
+		PreparedStatement pst = con.prepareStatement(sql);
+		pst.setInt(1, userId);
+		List<Order> orderlist = new ArrayList<Order>();
+		ResultSet rs = pst.executeQuery();
+		while (rs.next()) {
 			int userid = rs.getInt("userid");
 			int bookid = rs.getInt("bookid");
 			int quantity = rs.getInt("quantity");

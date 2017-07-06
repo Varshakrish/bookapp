@@ -8,36 +8,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>List Orders</title>
+<title>My Orders</title>
 </head>
 <body>
-
-
-<%
+<h3> MYORDERS </h3>
+	<%
 	  
 	 User user=(User) session.getAttribute("logged_in_user");
 	 %>
 	
-	welcome<%=user.getName() %>
-	
-	
-	
-<h3> LISTORDERS </h3>
-	<%
-		OrderDAO orderdao = new OrderDAO();
-		List<Order> orderList = orderdao.listorder();
+	welcome<%=user.getName() %> !!!
+
+		<% OrderDAO orderDAO = new OrderDAO();
+		List<Order> orderList = orderDAO.listorder(user.getId()); %>
 		//out.println("books:" + bookList);
-	%>
+	
 	<table border="1">
 		<thead>
 			<tr>
-			    <th>userid</th>
-				<th>bookid</th>
+			    <th>userId</th>
+				<th>bookId</th>
 				<th>quantity</th>
-			
 			</tr>
 		</thead>
-		
 	<%
 		for (Order o: orderList) {
 			out.println("<tr>");
@@ -55,8 +48,6 @@
 		</tbody>
 		</table>
 
-
-<a href="MyOrders.jsp">My Orders</a>
 
 
 </body>

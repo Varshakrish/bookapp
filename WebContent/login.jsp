@@ -12,7 +12,7 @@
 		Password:<input type="password" name="password" required /> <br>
 		<button type=submit>Login</button>
 		<button>Create account</button>
-	</form>
+			</form>
 	<a href="register.html">create a new account</a>
 	<a href="listbooks.html">list all books</a>
 </body>

@@ -39,11 +39,7 @@ public class OrderBookServlet extends HttpServlet {
 		String userid=request.getParameter("userid");
 			String bookid=request.getParameter("bookid");
 			String quantity=request.getParameter("quantity");
-			
-			
-			
 		
-			
 			out.println("userid"+userid);
 			out.println("bookid"+bookid);
 			out.println("quantity"+quantity);
@@ -54,7 +50,7 @@ public class OrderBookServlet extends HttpServlet {
 
 			Order order=new Order();
 			order.setUserId(j);
-			order.setBookId(i);
+			order.setBookid(i);
 			order.setQuantity(l);
 			
 			

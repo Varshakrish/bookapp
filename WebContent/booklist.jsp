@@ -1,4 +1,5 @@
 <!docType HTML>
+<%@page import="com.varsha.revature.User"%>
 <%@page import="com.varsha.revature.Book"%>
 <%@page import="java.util.List"%>
 <%@page import="com.varsha.revature.BookDAO"%>
@@ -7,10 +8,18 @@
 <title>BookApp_register</title>
 </head>
 <body>
+
+<%
+	  
+	 User user=(User) session.getAttribute("logged_in_user");
+	 %>
+	
+	welcome<%=user.getName() %>
+	
 	<h3>list of books</h3>
 	<%
 		BookDAO bookdao = new BookDAO();
-		List<Book> bookList = bookdao.listbook();
+		List<Book> booklist = bookdao.listbook();
 		//out.println("books:" + bookList);
 	%>
 	<table border="1">
@@ -25,13 +34,13 @@
 		</thead>
 		
 	<%
-		for (Book b : bookList) {
+		for (Book a: booklist) {
 			out.println("<tr>");
-			out.println("<td>"+b.getId() +"</td>");
-			out.println("<td>" + b.getAuthor_name() + "</td>");
-			out.println("<td>" + b.getName() + "</td>");
-			out.println("<td>" + b.getPrice() + "</td>");
-			out.println("<td>" + b.getPublished_date() + "</td>");
+			out.println("<td>"+a.getId() +"</td>");
+			out.println("<td>" + a.getAuthor_name() + "</td>");
+			out.println("<td>" + a.getName() + "</td>");
+			out.println("<td>" + a.getPrice() + "</td>");
+			out.println("<td>" + a.getPublished_date() + "</td>");
 			out.println("</tr>");
 		}
 	%>

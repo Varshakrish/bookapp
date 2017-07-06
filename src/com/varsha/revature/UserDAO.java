@@ -27,12 +27,14 @@ public class UserDAO {
 	}
 
 	public User login(String email, String password) throws Exception {
-		String sql = "select id,name,email from users where email = ? and password = ? ";
+		String sql = "select id,name,email,password from users where email = ? and password = ? ";
 		User user = null;
 		//step 1: Get the connection
 		Connection con = ConnectionUtil.getConnection();
 		
 		PreparedStatement pst = con.prepareStatement(sql);
+		pst.setString(1,email);
+		pst.setString(2, password);
 		
 		ResultSet rs = pst.executeQuery();
 		//while(rs.next()) {
@@ -48,8 +50,8 @@ public class UserDAO {
 			user = new User();
 			user.setId(id);
 			user.setName(name);
-			user.setEmail(email);
-			user.setPassword(password);
+			user.setEmail(Email);
+			user.setPassword(Password);
 			
 			
 			

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.varsha.revature.User;
 import com.varsha.revature.UserDAO;
@@ -39,11 +40,13 @@ public class LoginController extends HttpServlet {
 			out.println("user="+ user);
 			if(user==null)
 			{
-				response.sendRedirect("Login.jsp");
+				response.sendRedirect("login.jsp");
 			}
 			else
 			{
-				response.sendRedirect("list.jsp");
+				HttpSession session=request.getSession();
+				 session.setAttribute("logged_in_user",user);
+				response.sendRedirect("listorders.jsp");
 			}
 		}
 	}
