@@ -1,4 +1,4 @@
-package com.varsha.revature;
+package com.varsha.revature.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -8,6 +8,9 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.varsha.revature.model.Order;
+import com.varsha.revature.util.ConnectionUtil;
 
 public class OrderDAO {
 	public void bookOrder(Order order) throws Exception {

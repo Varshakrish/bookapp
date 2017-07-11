@@ -1,4 +1,4 @@
-package com.varsha.revature;
+package com.varsha.revature.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

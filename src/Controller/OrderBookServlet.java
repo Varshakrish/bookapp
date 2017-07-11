@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.varsha.revature.BookDAO;
-import com.varsha.revature.Order;
-import com.varsha.revature.OrderDAO;
+import com.varsha.revature.dao.BookDAO;
+import com.varsha.revature.dao.OrderDAO;
+import com.varsha.revature.model.Order;
 
 /**
  * Servlet implementation class OrderBookServlet
@@ -61,5 +61,8 @@ public class OrderBookServlet extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
+			
+			response.sendRedirect("listorders.jsp");
 		}
 	}

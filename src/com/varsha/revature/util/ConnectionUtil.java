@@ -1,4 +1,4 @@
-package com.varsha.revature;
+package com.varsha.revature.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

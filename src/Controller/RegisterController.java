@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.varsha.revature.User;
-import com.varsha.revature.UserDAO;
+import com.varsha.revature.dao.UserDAO;
+import com.varsha.revature.model.User;
 
 
 @WebServlet("/RegisterController")

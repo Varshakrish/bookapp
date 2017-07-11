@@ -15,6 +15,7 @@
 			</form>
 	<a href="register.html">create a new account</a>
 	<a href="listbooks.html">list all books</a>
-</body>
+
+	</body>
 </html>
 

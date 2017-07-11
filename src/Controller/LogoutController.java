@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -24,8 +24,9 @@ public class LogoutController extends HttpServlet {
 	
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		HttpSession session=request.getSession();
-		 session.getAttribute("logged_in_user");
-		response.sendRedirect("login.jsp");
+		 //session.removeAttribute("logged_in_user");
+		session.invalidate();
+		//response.sendRedirect("login.jsp");
 
 	}
 

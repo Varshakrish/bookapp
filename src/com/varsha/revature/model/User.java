@@ -1,4 +1,4 @@
-package com.varsha.revature;
+package com.varsha.revature.model;
 
 public class User {
  private Integer id ;

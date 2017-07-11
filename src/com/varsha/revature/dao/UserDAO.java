@@ -1,8 +1,11 @@
-package com.varsha.revature;
+package com.varsha.revature.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import com.varsha.revature.model.User;
+import com.varsha.revature.util.ConnectionUtil;
 
 public class UserDAO {
 	
@@ -12,6 +15,7 @@ public class UserDAO {
 		Connection con = ConnectionUtil.getConnection();
 		
 		//step 2: SQL query
+		
 		String sql = "insert into users ( name, email, password) values ( ?, ? ,? )";
 		
 		PreparedStatement pst = con.prepareStatement(sql);

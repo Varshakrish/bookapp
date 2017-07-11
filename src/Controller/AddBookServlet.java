@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,12 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.varsha.revature.Book;
-import com.varsha.revature.BookDAO;
+import com.varsha.revature.dao.BookDAO;
+import com.varsha.revature.model.Book;
 
-/**
- * Servlet implementation class AddBookServlet
- */
+
 @WebServlet("/AddBookServlet")
 public class AddBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -28,24 +26,24 @@ public class AddBookServlet extends HttpServlet {
 	String Id=request.getParameter("Id");
 		String name=request.getParameter("Name");
 		String price=request.getParameter("price");
-		String author_name=request.getParameter("Author_Name");
-		String published_date=request.getParameter("published_Date");
+		String authorName=request.getParameter("AuthorName");
+		String publishedDate=request.getParameter("publishedDate");
 		
 		
 	
 		
 		out.println("name"+name);
 		out.println("price"+price);
-		out.println("author_name"+author_name);
-		out.println("published_date"+published_date);
+		out.println("authorName"+authorName);
+		out.println("publishedDate"+publishedDate);
 		int p=Integer.parseInt(price);
-		LocalDate s=LocalDate.parse(published_date);
+		LocalDate s=LocalDate.parse(publishedDate);
 		
 		Book book=new Book();
 		book.setName(name);
 		book.setPrice(p);
-		book.setAuthor_name(author_name);
-		book.setPublished_date(s);
+		book.setAuthorName(authorName);
+		book.setPublishedDate(s);
 		out.println(book);
 		BookDAO b=new BookDAO();
 		try {

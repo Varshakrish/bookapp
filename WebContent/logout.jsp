@@ -9,7 +9,7 @@
 	<h4>LogOut</h4>
 	<form action="LogoutController">
 		>
-		<button type=Logout>Login</button>
+		<button type="submit">Logout</button>
 			</form>
 	</body>
 </html>
